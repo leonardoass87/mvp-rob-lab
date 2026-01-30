@@ -16,7 +16,8 @@ def callback_query(call):
     if call.data == "btn_financas":
         interface.analisar_financas(call.message)
     elif call.data == "btn_jobs":
-        bot.answer_callback_query(call.id, "Em breve: Minerador de Jobs PJ")
+        #bot.answer_callback_query(call.id, "Em breve: Minerador de Jobs PJ")
+        interface.analisar_jobs(call.message)
     elif call.data == "btn_dark":
         bot.answer_callback_query(call.id, "Em breve: Automação Canal Dark")
 

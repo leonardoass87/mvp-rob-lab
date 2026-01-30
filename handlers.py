@@ -24,3 +24,22 @@ class BotHandlers:
             self.bot.send_message(message.chat.id, res)
         else:
             self.bot.send_message(message.chat.id, "⚠️ notícias.json não encontrado.")
+
+    def analisar_jobs(self, message):
+        if os.path.exists("jobs.json"):
+            with open("jobs.json", "r", encoding="utf-8") as f:
+                vagas = f.read()
+        
+            # Prompt de "Ataque" para ganhar o freela
+            prompt = (
+                f"Você é o Headhunter do ROBLab. Analise estas vagas: {vagas}. "
+                "1. Identifique as 2 melhores para um desenvolvedor Python/PJ. "
+                "2. Para cada uma, escreva uma proposta curta e matadora (em inglês e português) "
+                "focada em entrega rápida e qualidade técnica. "
+                "Seja direto, sem enrolação."
+            )
+        
+            res = self.intel.ask(prompt)
+            self.bot.send_message(message.chat.id, res)
+        else:
+            self.bot.send_message(message.chat.id, "⚠️ jobs.json não encontrado. Rode o minerador primeiro!")
