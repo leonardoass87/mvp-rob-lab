@@ -1,8 +1,12 @@
 import google.generativeai as genai
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 class Intelligence:
     def __init__(self):
-        self.api_key = "AIzaSyCAtlpoewdAMGeYnH-tjrg6bfxXDLLFdm0"
+        self.api_key = os.getenv("GEMINI_KEY")
         genai.configure(api_key=self.api_key)
         self.model = self._get_working_model()
 

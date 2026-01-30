@@ -1,0 +1,13 @@
+# Python internals
+__pycache__/
+*.pyc
+
+# Environment variables (Sensitive!)
+.env
+
+# Telethon/Pyrogram sessions (Sensitive!)
+*.session
+
+# Generated data files
+jobs.json
+noticias.json

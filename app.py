@@ -1,8 +1,11 @@
 import telebot
 from brain import Intelligence
 from handlers import BotHandlers
+from dotenv import load_dotenv
 
-TOKEN = "8595595411:AAEv1B1jCb-Np9-epIUwdIhB9IXITBb4xps"
+load_dotenv()
+
+TOKEN = os.getenv("TELEGRAM_TOKEN")
 bot = telebot.TeleBot(TOKEN)
 intel = Intelligence()
 interface = BotHandlers(bot, intel)
